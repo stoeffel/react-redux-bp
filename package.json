@@ -8,7 +8,7 @@
     "test:watch": "watch 'npm test' src tests",
     "test:unit": "ava",
     "test:coverage": "nyc -r=text -r=html npm test",
-    "test:coverage:report": "npm run test:coverage > coverage.lcov && codecov",
+    "coverage:report": "npm run test:coverage > coverage.lcov && codecov",
     "test:lint": "standard",
     "build": "npm run build:prod",
     "build:dev": "npm run build:webpack:dev",
