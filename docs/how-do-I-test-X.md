@@ -57,14 +57,16 @@ test(t => {
 X === Sagas
 -----------
 
-You can use the `fromGenerator` helper and expect each step of the saga.
+To test sagas it's recommended to use [redux-saga-test](https://github.com/stoeffel/redux-saga-test).
 
 ```js
-const next = fromGenerator(onFetch({ payload }))
+import fromGenerator from 'redux-saga-test'
+// ...
+const expect = fromGenerator(t, onFetch({ payload }))
 
-t.deepEqual(next(), put(fetching(payload)))
-t.deepEqual(next(), call(delay, 2000))
-t.deepEqual(next(), call(fetch, './fixtures/fakeData.json'))
+expect.next().put(fetching(payload))
+expect.next().call(delay, 2000)
+expect.next().call(fetch, './fixtures/fakeData.json')
 ```
 
 X === Components

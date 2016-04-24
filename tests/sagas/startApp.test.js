@@ -1,7 +1,5 @@
 import test from 'ava'
-import { call, put } from 'redux-saga/effects'
-
-import fromGenerator from './fromGenerator'
+import fromGenerator from 'redux-saga-test'
 import { elementById, render } from '../../src/sagas/helpers'
 import { HTML } from '../../src/constants'
 import { startingApp, appStarted } from '../../src/actions/app'
@@ -10,29 +8,25 @@ import watchStartApp, { onStartApp } from '../../src/sagas/startApp'
 import Provider from '../../src/provider'
 
 test(t => {
-  const next = fromGenerator(onStartApp())
+  const expect = fromGenerator(t, onStartApp())
 
-  t.deepEqual(next(), put(startingApp()))
-  t.deepEqual(next(), call(elementById, HTML.ROOT_ELEMENT_ID))
-
+  expect.next().put(startingApp())
+  expect.next().call(elementById, HTML.ROOT_ELEMENT_ID)
   const appDiv = '<div>'
-  const val = next(appDiv)
-  t.deepEqual(val, call(render, Provider(), appDiv))
-  t.deepEqual(next(), put(appStarted()))
+  expect.next(appDiv).call(render, Provider(), appDiv)
+  expect.next().put(appStarted())
 })
 
 test(t => {
   const error = new Error('foo')
-  const generator = onStartApp()
-  const next = fromGenerator(generator)
+  const expect = fromGenerator(t, onStartApp())
 
-  t.deepEqual(next(), put(startingApp()))
-  t.deepEqual(generator.throw(error).value, put(appStarted(error)))
+  expect.next().put(startingApp())
+  expect.throwNext(error).put(appStarted(error))
 })
 
 test(t => {
-  const next = fromGenerator(watchStartApp())
+  const expect = fromGenerator(t, watchStartApp())
 
-  t.is(next().TAKE.pattern, APP.START_APP)
-  t.is(next().FORK.fn, onStartApp)
+  expect.takeEvery(APP.START_APP, onStartApp)
 })
