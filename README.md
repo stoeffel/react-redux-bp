@@ -45,7 +45,7 @@ export default ({text}) => (
 ### Testing
 
 There are test examples for all component types. The tests are run using [ava](https://github.com/sindresorhus/ava). Tests coverage is created with [nyc](https://github.com/bcoe/nyc) and linting is done with [standard](https://github.com/feross/standard).
-Check out the `tests` folder to see examples for tests or read the [how do I test X guide](./how-do-I-test-X.md).
+Check out the `tests` folder to see examples for tests or read the [how do I test X guide](./docs/how-do-I-test-X.md).
 
 ### Routing
 
