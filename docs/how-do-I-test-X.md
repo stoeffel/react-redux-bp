@@ -54,6 +54,19 @@ test(t => {
 })
 ```
 
+X === Sagas
+-----------
+
+You can use the `fromGenerator` helper and expect each step of the saga.
+
+```js
+const next = fromGenerator(onFetch({ payload }))
+
+t.deepEqual(next(), put(fetching(payload)))
+t.deepEqual(next(), call(delay, 2000))
+t.deepEqual(next(), call(fetch, './fixtures/fakeData.json'))
+```
+
 X === Components
 ----------
 
