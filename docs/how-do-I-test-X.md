@@ -4,7 +4,7 @@ How do I test X?
 X === Reducers
 --------
 
-Reducers are tested with [`testReducer`](./test/reducers/testReducer).
+Reducers are tested with [`testReducer`](../test/reducers/testReducer).
 `testReducer` take `t` from ava and the reducer and creates a function `assertReducer`.
 
 `assertReducers` takes the initial state the expected state after the reduction of the action
@@ -104,5 +104,20 @@ test('is fetching', t => {
   t.deepEqual(store.getActions(), [
     fake.fetch()
   ])
+})
+```
+
+X === ActionCreators
+--------------------
+
+ActionCreators are tested simply by calling the actionCreator and asserting the resulting action.
+
+```js
+// ...
+test(t => {
+  t.deepEqual(appStarted(), {
+    type: APP.APP_STARTED,
+    payload: null
+  })
 })
 ```

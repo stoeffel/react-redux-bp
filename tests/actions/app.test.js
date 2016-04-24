@@ -2,31 +2,24 @@ import test from 'ava'
 
 import { startApp, startingApp, appStarted } from '../../src/actions/app'
 import { APP } from '../../src/constants'
-import testAction from './testAction'
 
 test(t => {
-  const assertAction = testAction(t, startApp)
-
-  assertAction(
-    [],
-    APP.START_APP
-  )
+  t.deepEqual(startApp(), {
+    type: APP.START_APP,
+    payload: null
+  })
 })
 
 test(t => {
-  const assertAction = testAction(t, startingApp)
-
-  assertAction(
-    [],
-    APP.STARTING_APP
-  )
+  t.deepEqual(startingApp(), {
+    type: APP.STARTING_APP,
+    payload: null
+  })
 })
 
 test(t => {
-  const assertAction = testAction(t, appStarted)
-
-  assertAction(
-    [],
-    APP.APP_STARTED
-  )
+  t.deepEqual(appStarted(), {
+    type: APP.APP_STARTED,
+    payload: null
+  })
 })
