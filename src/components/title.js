@@ -1,10 +1,10 @@
-import { h, hh } from '../helpers/h'
+import { h } from '../helpers/h'
 
 const {h1} = h
 const style = {
   color: 'red'
 }
 
-export default hh(({text}) => (
+export default ({text}) => (
 h1({style}, text)
-))
+)

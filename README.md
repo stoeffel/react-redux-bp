@@ -26,19 +26,19 @@
 
 There is no jsx in this repo. You will find a [helper](./src/helper/h.js) to create components.
 `h` is the same as `React.DOM` :smiley:.
-`hh` create a function which takes `props` and `children` and calls `createElement`.
+`hh` creates a function which takes `props` and `children` and calls `createElement`. This is used for 3rd-party components.
 
 ```js
-import { h, hh } from '../helpers/h'
+import { h } from '../helpers/h'
 
 const {h1} = h
 const style = {
   color: 'red'
 }
 
-export default hh({text}) => (
+export default ({text}) => (
   h1({style}, text)
-))
+)
 ```
 
 
