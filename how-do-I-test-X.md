@@ -1,7 +1,7 @@
 How do I test X?
 ================
 
-Reducers
+X === Reducers
 --------
 
 Reducers are tested with [`testReducer`](./test/reducers/testReducer).
@@ -11,11 +11,10 @@ Reducers are tested with [`testReducer`](./test/reducers/testReducer).
 and the action.
 
 ```js
-import test from 'ava'
-
+// ...
 import testReducer from './testReducer'
 import appReducer from '../../src/reducers/app'
-import { appStarted } from '../../src/actions/app'
+// ...
 
 test(t => {
   const assertReducer = testReducer(t, appReducer)
@@ -37,6 +36,7 @@ test(t => {
 `assertReducer` is curried. This allows you to make dry tests.
 
 ```js
+// ...
 test(t => {
   const init = {
     started: false
@@ -54,3 +54,55 @@ test(t => {
 })
 ```
 
+X === Components
+----------
+
+Components are tested with [enzyme](https://github.com/airbnb/enzyme).
+It's recommended to use `shallow`-rendering for component tests.
+
+```js
+import { shallow } from 'enzyme'
+// ...
+
+test(t => {
+  const wrapper = shallow(Title({ text: 'test' }))
+  t.truthy(wrapper.contains(h.h1({ style: { color: 'red' } }, 'test')))
+})
+```
+
+X === Containers
+----------
+
+Containers are tested with [enzyme](https://github.com/airbnb/enzyme) and [redux-mock-store](https://github.com/arnaudbenard/redux-mock-store).
+It's recommended to use `mount` for container tests.
+You can simulate clicks and other events and then assert what actions were dispatched.
+
+```js
+t.deepEqual(store.getActions(), [ // <= get all dispatched actions
+  fake.fetch() // <= actionCreator
+])
+```
+
+```js
+// ...
+import configureStore from 'redux-mock-store'
+import { mount } from 'enzyme'
+
+const mockStore = configureStore()
+
+test('is fetching', t => {
+  const store = mockStore() // create a mocked store
+  const wrapper = mount(createElement(About, { // <= mount the container
+    store, // <= pass the mocked store
+    text: 'test',
+    fake: {
+      isFetching: true
+    }
+  }))
+
+  t.is(wrapper.find('h1').text(), 'ABOUT: loading...')
+  t.deepEqual(store.getActions(), [
+    fake.fetch()
+  ])
+})
+```
