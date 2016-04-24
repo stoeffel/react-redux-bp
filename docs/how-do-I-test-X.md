@@ -121,3 +121,16 @@ test(t => {
   })
 })
 ```
+
+X === Constants
+---------------
+
+Constants are tested simply by expecting the values.
+
+```js
+t.deepEqual(APP, {
+  START_APP: 'my-app/status/START_APP',
+  STARTING_APP: 'my-app/status/STARTING_APP',
+  APP_STARTED: 'my-app/status/APP_STARTED'
+})
+```
