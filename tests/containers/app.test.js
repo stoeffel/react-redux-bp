@@ -8,7 +8,7 @@ import App from '../../src/containers/app'
 
 const mockStore = configureStore()
 
-test(t => {
+test('app', t => {
   const store = mockStore()
   const wrapper = mount(createElement(App, {
     store,

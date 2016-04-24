@@ -7,7 +7,7 @@ import Home from '../../src/containers/home'
 
 const mockStore = configureStore()
 
-test(t => {
+test('home', t => {
   const store = mockStore()
   const wrapper = mount(createElement(Home, {
     store
