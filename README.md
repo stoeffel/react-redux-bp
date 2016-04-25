@@ -27,6 +27,7 @@
 * [docs](./docs)
   * [Build System](./docs/build-system.md)
   * [How do I test X?](./docs/how-do-I-test-X.md)
+  * [Making an api call](./docs/making-an-api-call.md)
   * [Persistent State](./docs/persistent-state.md)
   * [React](./docs/react.md)
   * [Routing](./docs/routing.md)
