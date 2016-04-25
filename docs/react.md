@@ -5,7 +5,8 @@ React
 
 [Got to top](/README.md)
 
-
+* [no-jsx](#no-jsx)
+* [Conditional class names](#conditional-class-names)
 
 
 <!-- /RM -->
@@ -32,7 +33,7 @@ export default ({text}) => (
 
 Dispite my recommendation to use functions instead of jsx. Manly, because jsx adds a lot off useless boilerplate and functions are better to compose. You can use it ([example](https://github.com/stoeffel/react-redux-bp/blob/master/src/containers/about.js#L20)).
 
-### Conditional class names
+## Conditional class names
 
 For conditional class names you should use [classnames](https://github.com/JedWatson/classnames)
 
