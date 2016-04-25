@@ -85,6 +85,7 @@
   },
   "homepage": "https://github.com/stoeffel/react-redux-bp#readme",
   "dependencies": {
+    "classnames": "^2.2.4",
     "create-constants": "^0.1.0",
     "debug": "^2.2.0",
     "isomorphic-fetch": "^2.2.1",

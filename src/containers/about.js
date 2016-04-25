@@ -17,7 +17,7 @@ div(null,
   ifElse(
     not,
     () => Title({text: `${text}: ${fake.data}`}),
-    () => <Title text={`${text}: loading...`} /> // <= or jsx if it must be
+    () => <Title text={`${text}: loading...`} loading={true}/> // <= or jsx if it must be
   )(fake.isFetching)
 ))
 
