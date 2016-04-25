@@ -1,33 +1,37 @@
 import test from 'ava'
 import configureStore from 'redux-mock-store'
-import { mount } from 'enzyme'
+import { shallow } from 'enzyme'
 import { createElement } from 'react'
 import { fake } from '../../src/actions'
 
-import About from '../../src/containers/about'
+import Enhanced, { About } from '../../src/containers/about'
 
 const mockStore = configureStore()
 
-test('is fetching', t => {
+test('calls action', t => {
   const store = mockStore()
-  const wrapper = mount(createElement(About, {
-    store,
+  shallow(createElement(Enhanced, {
+    store
+  })).shallow()
+
+  t.deepEqual(store.getActions(), [
+    fake.fetch()
+  ])
+})
+
+test('is fetching', t => {
+  const wrapper = shallow(createElement(About, {
     text: 'test',
     fake: {
       isFetching: true
     }
   }))
 
-  t.is(wrapper.find('h1').text(), 'ABOUT: loading...')
-  t.deepEqual(store.getActions(), [
-    fake.fetch()
-  ])
+  t.is(wrapper.find({text: 'ABOUT: loading...'}).length, 1)
 })
 
 test('fetched', t => {
-  const store = mockStore()
-  const wrapper = mount(createElement(About, {
-    store,
+  const wrapper = shallow(createElement(About, {
     text: 'test',
     fake: {
       isFetching: false,
@@ -35,5 +39,5 @@ test('fetched', t => {
     }
   }))
 
-  t.is(wrapper.find('h1').text(), 'ABOUT: Hello')
+  t.is(wrapper.find({text: 'ABOUT: Hello'}).length, 1)
 })

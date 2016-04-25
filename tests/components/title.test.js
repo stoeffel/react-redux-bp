@@ -1,10 +1,15 @@
 import test from 'ava'
 import { shallow } from 'enzyme'
-
-import { h } from '../../src/helpers/h'
+import { IntlProvider } from 'react-intl'
+import { hh } from '../../src/helpers/h'
 import Title from '../../src/components/title'
 
+const title = hh(Title.WrappedComponent)
+
 test('title component', t => {
-  const wrapper = shallow(Title({ text: 'test' }))
-  t.truthy(wrapper.contains(h.h1({ style: { color: 'red' } }, 'test')))
+  const intlProvider = new IntlProvider({locale: 'en'}, {})
+  const {intl} = intlProvider.getChildContext()
+
+  const wrapper = shallow(title({ text: 'test', intl }))
+  t.truthy(wrapper.text().includes('test'))
 })
