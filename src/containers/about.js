@@ -1,3 +1,4 @@
+import React from 'react'
 import { not, pick, compose, ifElse } from 'ramda'
 import { connect } from 'react-redux'
 import { pure } from 'recompose'
@@ -16,7 +17,7 @@ div(null,
   ifElse(
     not,
     () => Title({text: `${text}: ${fake.data}`}),
-    () => Title({text: `${text}: loading...`})
+    () => <Title text={`${text}: loading...`} /> // <= or jsx if it must be
   )(fake.isFetching)
 ))
 

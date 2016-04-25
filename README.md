@@ -41,6 +41,8 @@ export default ({text}) => (
 )
 ```
 
+Dispite my recommendation to use functions instead of jsx. Manly, because jsx adds a lot off useless boilerplate and functions are better to compose. You can use it ([example](https://github.com/stoeffel/react-redux-bp/blob/master/src/containers/about.js#L20)).
+
 
 ### Testing
 
