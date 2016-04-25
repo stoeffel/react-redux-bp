@@ -28,4 +28,16 @@ This will start a webpack-dev-server, which auto reloads files on change (HMR).
 
 For tdd you should run `npm run test:watch`. This will start the unit tests and linting if you change a file in `src` or `tests`
 
+
 ## Webpack
+
+The webpack config is intentionaly kept simple.
+
+## Babel
+
+The babel config is in the [package.json](https://github.com/stoeffel/react-redux-bp/blob/master/package.json#L40).
+Ava uses the same config to transpile the code under test.
+
+## Linting with [standard](https://github.com/feross/standard)
+
+This boilerplate uses the standard style. Linting is part of `npm test` and can be run individuelly with `npm run test:lint`. To automatically fix all lint-issues you can run `npm run format`.
