@@ -35,7 +35,9 @@
     "?serve:dev": "Serves your app for development",
     "serve:dev": "npm run copy-to-build && webpack-dev-server",
     "?copy-to-build": "Copies files to the build folder for serving.",
-    "copy-to-build": "cp ./index.html ./build && cp -r ./fixtures ./build/fixtures"
+    "copy-to-build": "cp ./index.html ./build && cp -r ./fixtures ./build/fixtures",
+    "?toc": "Generates TOC",
+    "toc": "roadmarks"
   },
   "babel": {
     "presets": [
@@ -125,6 +127,7 @@
     "react-addons-test-utils": "^15.0.1",
     "redux-mock-store": "^1.0.2",
     "redux-saga-test": "0.0.1",
+    "roadmarks": "^1.6.3",
     "standard": "^6.0.8",
     "standard-format": "^2.1.1",
     "watch": "^0.17.1",

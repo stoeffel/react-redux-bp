@@ -1,6 +1,19 @@
 Build System
 ============
 
+<!-- RM -->
+
+[Got to top](/README.md)
+
+* [Development](#development)
+* [Webpack](#webpack)
+* [Babel](#babel)
+* [Linting with [standard](https://github.com/feross/standard)](#linting-with-standardhttpsgithubcomferossstandard)
+
+
+<!-- /RM -->
+
+
 The build system is passed on npm-scripts.
 You can run `npm run info` to see all available scripts.
 

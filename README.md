@@ -20,43 +20,17 @@
 * functional goodies
 * testing
 
-## Details
+## [:book: Documentation](./docs)
 
-### React
+<!-- RM(tree:*,nocontent,noparent,notop) -->
 
-There is no jsx in this repo. You will find a [helper](./src/helper/h.js) to create components.
-`h` is the same as `React.DOM` :smiley:.
-`hh` creates a function which takes `props` and `children` and calls `createElement`. This is used for 3rd-party components.
-
-```js
-import { h } from '../helpers/h'
-
-const {h1} = h
-const style = {
-  color: 'red'
-}
-
-export default ({text}) => (
-  h1({style}, text)
-)
-```
-
-Dispite my recommendation to use functions instead of jsx. Manly, because jsx adds a lot off useless boilerplate and functions are better to compose. You can use it ([example](https://github.com/stoeffel/react-redux-bp/blob/master/src/containers/about.js#L20)).
+* [docs](./docs)
+  * [Build System](./docs/build-system.md)
+  * [How do I test X?](./docs/how-do-I-test-X.md)
+  * [Persistent State](./docs/persistent-state.md)
+  * [React](./docs/react.md)
+  * [Routing](./docs/routing.md)
 
 
-### Testing
 
-There are test examples for all component types. The tests are run using [ava](https://github.com/sindresorhus/ava). Tests coverage is created with [nyc](https://github.com/bcoe/nyc) and linting is done with [standard](https://github.com/feross/standard).
-Check out the `tests` folder to see examples for tests or read the [how do I test X guide](./docs/how-do-I-test-X.md).
-
-### Routing
-
-This boilerplate uses [react-router-redux](https://github.com/reactjs/react-router-redux).
-
-All routes are described [src/routes.js](./src/routes/index.js).
-
-
-### Persistent State
-
-State is persisted using [redux-localstorage](https://github.com/elgerlambert/redux-localstorage).
-The parts of the state tree which are persisted are defined in [`presistPaths`](https://github.com/stoeffel/react-redux-bp/blob/master/src/store/persistPaths.js).
+<!-- /RM -->
