@@ -22,7 +22,8 @@ test(t => {
   const expect = fromGenerator(t, onStartApp())
 
   expect.next().put(startingApp())
-  expect.throwNext(error).put(appStarted(error))
+  expect.throwNext(error).call([console, console.log], error)
+  expect.next().put(appStarted(error))
 })
 
 test(t => {

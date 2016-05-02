@@ -16,6 +16,7 @@ export function * onStartApp () {
     yield call(render, Provider(), appDiv)
     yield put(appStarted())
   } catch (e) {
+    yield call([console, console.log], e)
     yield put(appStarted(e))
   }
 }
